@@ -239,10 +239,10 @@ const ContactPage: React.FC = () => {
                   <div>
                     <h4 className="font-semibold text-[#0A2342] group-hover:text-[#2CA58D] transition-colors duration-300">Email</h4>
                     <a 
-                      href="mailto:delta-it@proton.me"
+                      href="mailto:delta-it.cm@proton.me"
                       className="text-[#343A40] group-hover:text-[#2CA58D] transition-colors duration-300 hover:underline"
                     >
-                      delta-it@proton.me
+                      delta-it.cm@proton.me
                     </a>
                   </div>
                 </div>
