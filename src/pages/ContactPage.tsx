@@ -41,7 +41,7 @@ const ContactPage: React.FC = () => {
         phone: formData.telephone,
         service_type: formData.besoin,
         message: formData.message,
-        to_email: 'chapeaugrisc1@gmail.com' // Votre email de réception
+        to_email: 'delta-it.cm@proton.me' // Votre email de réception
       };
 
       await emailjs.send(serviceId, templateId, templateParams, userId);
