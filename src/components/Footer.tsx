@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
             <div className="space-y-2 text-gray-300">
               <div className="flex items-center hover:text-[#2CA58D] transition-colors duration-300">
                 <Mail size={16} className="mr-2" />
-                <span>delta-it@proton.me</span>
+                <span>delta-it.cm@proton.me</span>
               </div>
               <div className="flex items-center hover:text-[#2CA58D] transition-colors duration-300">
                 <Phone size={16} className="mr-2" />
