@@ -22,30 +22,72 @@ const ContactPage: React.FC = () => {
     });
   };
 
+  //const handleSubmit = async (e: React.FormEvent) => {
+  //e.preventDefault();
+  //setIsSubmitting(true);
+  //setSubmitStatus('idle');
+
+  //try {
+  // Configuration EmailJS - Remplacez par vos vraies valeurs
+  //const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'your_service_id';
+  //const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id';
+  //const userId = import.meta.env.VITE_EMAILJS_USER_ID || 'your_user_id';
+
+  // Paramètres du template EmailJS
+  // const templateParams = {
+  //  from_name: formData.nom,
+  //  from_email: formData.email,
+  //  company_name: formData.entreprise,
+  //  phone: formData.telephone,
+  //  service_type: formData.besoin,
+  //  message: formData.message,
+  //  to_email: 'deltaIT.cm@gmail.com' // Votre email de réception
+  //  };
+
+  //await emailjs.send(serviceId, templateId, templateParams, userId);
+
+  //setSubmitStatus('success');
+  //setFormData({
+  //nom: '',
+  //entreprise: '',
+  //email: '',
+  //telephone: '',
+  //besoin: '',
+  //message: ''
+  //});
+  //} catch (error) {
+  //console.error('Erreur lors de l\'envoi:', error);
+  //setSubmitStatus('error');
+  //} finally {
+  //setIsSubmitting(false);
+  //}
+  //};
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    // Prépare les données du formulaire
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    // Ajoute les champs cachés nécessaires à FormSubmit
+    data.append('_subject', 'Nouveau message depuis Delta IT');
+    data.append('_captcha', 'false');
+    data.append('_autoresponse', "Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.");
+
     try {
-      // Configuration EmailJS - Remplacez par vos vraies valeurs
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'your_service_id';
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id';
-      const userId = import.meta.env.VITE_EMAILJS_USER_ID || 'your_user_id';
+      // Configuration FormSubmit.co
+      const response = await fetch('https://formsubmit.co/deltaIT.cm@gmail.com', {
+        method: 'POST',
+        body: data,
+      });
 
-      // Paramètres du template EmailJS
-      const templateParams = {
-        from_name: formData.nom,
-        from_email: formData.email,
-        company_name: formData.entreprise,
-        phone: formData.telephone,
-        service_type: formData.besoin,
-        message: formData.message,
-        to_email: 'deltaIT.cm@gmail.com' // Votre email de réception
-      };
+      if (!response.ok) {
+        throw new Error('Erreur lors de l\'envoi du formulaire');
+      }
 
-      await emailjs.send(serviceId, templateId, templateParams, userId);
-      
       setSubmitStatus('success');
       setFormData({
         nom: '',
@@ -238,7 +280,7 @@ const ContactPage: React.FC = () => {
                   <Mail size={24} className="text-[#2CA58D] mt-1 group-hover:scale-110 transition-transform duration-300" />
                   <div>
                     <h4 className="font-semibold text-[#0A2342] group-hover:text-[#2CA58D] transition-colors duration-300">Email</h4>
-                    <a 
+                    <a
                       href="mailto:delta-it.cm@proton.me"
                       className="text-[#343A40] group-hover:text-[#2CA58D] transition-colors duration-300 hover:underline"
                     >
@@ -250,7 +292,7 @@ const ContactPage: React.FC = () => {
                   <Phone size={24} className="text-[#2CA58D] mt-1 group-hover:scale-110 transition-transform duration-300" />
                   <div>
                     <h4 className="font-semibold text-[#0A2342] group-hover:text-[#2CA58D] transition-colors duration-300">Téléphone</h4>
-                    <a 
+                    <a
                       href="tel:+237697995579"
                       className="text-[#343A40] group-hover:text-[#2CA58D] transition-colors duration-300 hover:underline"
                     >
