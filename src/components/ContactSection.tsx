@@ -4,8 +4,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  selectedOffer?: string;
+}
+
+const ContactSection = ({ selectedOffer }: ContactSectionProps) => {
+  const [subject, setSubject] = useState("");
   const contactInfo = [
     {
       icon: Mail,
@@ -26,6 +32,12 @@ const ContactSection = () => {
       description: "75001 Paris, France",
     },
   ];
+
+  useEffect(() => {
+    if (selectedOffer) {
+      setSubject(`Demande d'information - Offre ${selectedOffer}`);
+    }
+  }, [selectedOffer]);
 
   return (
     <section id="contact" className="py-20 bg-background">
@@ -152,6 +164,8 @@ const ContactSection = () => {
                   </Label>
                   <Input
                     id="subject"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     placeholder="Objet de votre message"
                     className="border-2 focus:border-primary/50 transition-colors duration-300"
                   />
