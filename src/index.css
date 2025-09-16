@@ -4,44 +4,64 @@
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
-*/
+*
 
 @layer base {
   :root {
-    --background: 250 250 250;
-    --foreground: 15 23 42;
+   /* Core backgrounds 
+    --background: 210 20% 98%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    /* Card system 
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    /* Popover system 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 239 68 68;
-    --primary-foreground: 255 255 255;
+     /* Primary teal green 
+    --primary: 174 72% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 174 72% 65%;
 
-    --secondary: 248 250 252;
-    --secondary-foreground: 15 23 42;
+     /* Secondary dark teal accent 
+    --secondary: 200 50% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 200 50% 45%;
 
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
+    /* Muted grays 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 248 250 252;
-    --accent-foreground: 15 23 42;
+    /* Accent light teal 
+    --accent: 174 50% 85%;
+    --accent-foreground: 200 50% 15%;
+    --accent-glow: 174 50% 95%;
 
-    --destructive: 239 68 68;
-    --destructive-foreground: 255 255 255;
+     /* Tech success green 
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;*
 
+    /* Destructive red *
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and inputs *
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 25%;
+    /*
     --border: 226 232 240;
     --input: 226 232 240;
-    --ring: 239 68 68;
+    --ring: 239 68 68;*
 
-    /* Design system gradients - DeltaUpdate colors */
+    /* Design system gradients - DeltaUpdate colors *
     --gradient-primary: linear-gradient(135deg, hsl(0, 84%, 70%), hsl(15, 84%, 75%));
     --gradient-secondary: linear-gradient(135deg, hsl(250, 250%, 250%), hsl(248, 250%, 252%));
     --gradient-hero: linear-gradient(135deg, hsl(250, 250%, 250%) 0%, hsl(248, 250%, 252%) 50%, hsl(239, 68%, 95%) 100%);
     
-    /* Shadows */
+    /* Shadows *
     --shadow-soft: 0 4px 20px -4px hsl(239 68% 68% / 0.1);
     --shadow-medium: 0 10px 40px -10px hsl(239 68% 68% / 0.15);
     --shadow-large: 0 20px 60px -15px hsl(239 68% 68% / 0.2);
@@ -94,12 +114,12 @@ All colors MUST be HSL.
     --input: 51 65 85;
     --ring: 239 68 68;
 
-    /* Dark mode gradients */
+    /* Dark mode gradients *
     --gradient-primary: linear-gradient(135deg, hsl(0, 84%, 70%), hsl(15, 84%, 75%));
     --gradient-secondary: linear-gradient(135deg, hsl(15, 23%, 42%), hsl(51, 65%, 85%));
     --gradient-hero: linear-gradient(135deg, hsl(15, 23%, 42%) 0%, hsl(30, 41%, 59%) 50%, hsl(239, 68%, 30%) 100%);
     
-    /* Dark mode shadows */
+    /* Dark mode shadows *
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
     --shadow-medium: 0 10px 40px -10px hsl(0 0% 0% / 0.4);
     --shadow-large: 0 20px 60px -15px hsl(0 0% 0% / 0.5);
@@ -168,5 +188,161 @@ All colors MUST be HSL.
       opacity: 1;
       transform: translateX(0);
     }
+  }
+}
+*/
+
+/* Delta IT Design System - Tech Professional Theme */
+
+/* Delta IT Design System - Tech Professional Theme */
+
+@layer base {
+  :root {
+    /* Core backgrounds */
+    --background: 210 20% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    /* Popover system */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Primary teal green */
+    --primary: 174 72% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 174 72% 65%;
+
+    /* Secondary dark teal accent */
+    --secondary: 200 50% 25%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 200 50% 45%;
+
+    /* Muted grays */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Accent light teal */
+    --accent: 174 50% 85%;
+    --accent-foreground: 200 50% 15%;
+    --accent-glow: 174 50% 95%;
+
+    /* Tech success green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    /* Destructive red */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and inputs */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 25%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px hsl(var(--foreground) / 0.1);
+    --shadow-medium: 0 10px 15px -3px hsl(var(--foreground) / 0.1);
+    --shadow-large: 0 25px 50px -12px hsl(var(--foreground) / 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+    --shadow-accent-glow: 0 0 30px hsl(var(--accent-glow) / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode backgrounds */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    /* Dark card system */
+    --card: 217.2 32.6% 17.5%;
+    --card-foreground: 210 40% 98%;
+
+    /* Dark popover system */
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary teal in dark mode */
+    --primary: 174 65% 55%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --primary-glow: 174 65% 75%;
+
+    /* Secondary dark teal in dark */
+    --secondary: 200 40% 35%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-glow: 200 40% 55%;
+
+    /* Dark muted */
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Accent light teal in dark */
+    --accent: 174 40% 25%;
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 174 40% 45%;
+
+    /* Dark destructive */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Dark borders */
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217 91% 55%;
+
+    /* Dark shadows with glow effects */
+    --shadow-soft: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 10px 15px -3px hsl(0 0% 0% / 0.3);
+    --shadow-large: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-accent-glow: 0 0 30px hsl(var(--accent-glow) / 0.5);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }

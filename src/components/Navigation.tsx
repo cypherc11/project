@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
+import logoD from '../assets/logoD.png'
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -19,10 +19,12 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold primary-gradient bg-clip-text text-transparent">
-              DeltaUpdate
-            </h1>
+          <div className="flex items-center space-x-3 animate-fade-in">
+            <img 
+              src = {logoD}
+              alt="Delta IT Logo" 
+              className="h-20 w-auto object-contain filter drop-shadow-lg"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -43,9 +45,11 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="primary-gradient text-white font-medium shadow-medium hover:shadow-large transition-all duration-300">
-              Commencer
-            </Button>
+            <a href="#contact">
+              <Button className="primary-gradient text-white font-medium shadow-medium hover:shadow-large transition-all duration-300">
+                Commencer
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}

@@ -1,40 +1,84 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Zap, Shield, Gauge, Rocket, ArrowRight } from "lucide-react";
+import { Zap, Shield, Monitor, Globe, Smartphone, Gauge, Rocket, ArrowRight, Settings } from "lucide-react";
+import { useState } from 'react';
 
 const ServicesSection = () => {
+
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
   const services = [
     {
-      icon: Zap,
-      title: "Mise à jour Delta",
-      description: "Réduisez drastiquement la taille de vos mises à jour avec notre technologie delta avancée.",
-      features: ["Compression intelligente", "Déploiement optimisé", "Rollback automatique"],
+      icon: Monitor,
+      title: 'Développement Web',
+      description: 'Création de sites web modernes, responsives et performants adaptés à vos besoins.',
+      features: ['Design Responsive', 'SEO Optimisé', 'Performance Web', 'CMS Sur Mesure'],
+      link: '',
+      gradient: 'from-primary to-primary-glow',
+      delay: '0s',
+      plus: 'description par rapport au produit'
     },
+
     {
       icon: Shield,
-      title: "Sécurité Renforcée",
-      description: "Protégez vos déploiements avec nos systèmes de sécurité de niveau entreprise.",
-      features: ["Chiffrement bout-en-bout", "Vérification d'intégrité", "Audit complet"],
+      title: 'Cybersecurite de base',
+      description: 'Protection et sécurisation de vos systèmes et données d\'entreprise.',
+      features: ['Audit Sécurité', 'Firewall Setup', 'Backup Solutions', 'Monitoring 24/7'],
+      link: '',
+      gradient: 'from-accent to-accent-glow',
+      delay: '0.4s',
+      plus: 'description par rapport au produit'
     },
     {
-      icon: Gauge,
-      title: "Performance",
-      description: "Optimisez les performances de vos applications avec nos outils de monitoring.",
-      features: ["Métriques en temps réel", "Alertes intelligentes", "Optimisation auto"],
+      icon: Smartphone,
+      title: 'Gestion reseau et infrastructure IT',
+      description: 'Mise en place et maintenance de votre infrastructure IT et configuration des communication reseau',
+      features: ['LAN', 'WLAN', 'Installation bais information', 'Configurationde serveur interne'],
+      link: '',
+      gradient: 'from-secondary to-secondary-glow',
+      delay: '0.2s',
+      plus: 'description par rapport au produit'
+    },
+    /*
+    {
+      icon: Database,
+      title: 'Gestion de Données',
+      description: 'Conception et optimisation de bases de données pour vos applications.',
+      features: ['Base de Données', 'Migration Data', 'Optimisation', 'Analytics'],
+      gradient: 'from-primary to-secondary',
+      delay: '0.6s'
+    },
+    */
+    {
+      icon: Globe,
+      title: 'implementation et formation logiciel',
+      description: 'progresser grace a des logiciel adapter a vos besoin et soyer plus productif.',
+      features: ['AWS/Azure', 'Odoo', 'Autocards', 'Scalabilité'],
+      link: '',
+      gradient: 'from-secondary to-accent',
+      delay: '0.8s',
+      plus: 'description par rapport au produit'
     },
     {
-      icon: Rocket,
-      title: "Déploiement Rapide",
-      description: "Accélérez vos cycles de développement avec nos solutions de déploiement.",
-      features: ["CI/CD intégré", "Tests automatisés", "Déploiement zero-downtime"],
-    },
+      icon: Settings,
+      title: 'Maintenance & Support',
+      description: 'Support technique et maintenance continue de vos systèmes.',
+      features: ['Support 24/7', 'Maintenance', 'Updates', 'Formation'],
+      link: '',
+      gradient: 'from-accent to-primary',
+      delay: '1s',
+      plus: 'description par rapport au produit'
+    }
   ];
-
   return (
     <section id="services" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center space-x-2 bg-gradient-primary px-4 py-2 rounded-full text-sm font-medium text-primary-foreground mb-6 shadow-glow">
+            <Settings className="w-4 h-4" />
+            <span>Nos Services</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Nos Services
           </h2>
@@ -44,20 +88,30 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card 
-                key={service.title} 
+              <Card
+                key={service.title}
                 className="group hover:shadow-medium transition-all duration-300 border-2 hover:border-primary/20 bg-card animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: service.delay }}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
+                {/* Gradient background on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+
+                {/* Animated border */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-[2px] rounded-lg`}>
+                  <div className="bg-card rounded-lg h-full w-full" />
+                </div>
+
                 <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 mx-auto mb-4 primary-gradient rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-medium group-hover:shadow-glow`}>
                     <Icon className="h-8 w-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl font-bold text-foreground mb-2">
+                  <CardTitle className="text-xl font-bold text-foreground group-hover:text-prima mb-2">
                     {service.title}
                   </CardTitle>
                   <CardDescription className="text-muted-foreground">
@@ -73,8 +127,8 @@ const ServicesSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full group-hover:border-primary/50 transition-colors duration-300"
                   >
                     En savoir plus
@@ -87,29 +141,38 @@ const ServicesSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center bg-muted/30 rounded-2xl p-12 animate-fade-in-up">
-          <h3 className="text-3xl font-bold text-foreground mb-4">
-            Prêt à optimiser vos déploiements ?
-          </h3>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Contactez notre équipe d'experts pour discuter de vos besoins et découvrir comment DeltaUpdate peut transformer vos processus.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="primary-gradient text-white font-semibold shadow-medium hover:shadow-large transition-all duration-300"
-            >
-              Demander une consultation
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="font-semibold border-2 hover:bg-muted/50 transition-all duration-300"
-            >
-              Voir nos tarifs
-            </Button>
+        <div className="text-center mt-16 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
+          <div className="bg-gradient-card p-8 rounded-2xl border border-border shadow-medium">
+            <h3 className="text-3xl font-bold text-foreground mb-4">
+              Prêt à optimiser vos déploiements ?
+            </h3>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Contactez notre équipe d'experts pour discuter de vos besoins et découvrir comment DeltaUpdate peut transformer vos processus.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#contact">
+                <Button
+                  size="lg"
+                  className="primary-gradient text-white font-semibold shadow-medium hover:shadow-large transition-all duration-300"
+                >
+                  Demander une consultation
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
+              <a href="#offers">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="font-semibold border-2 hover:bg-muted/50 transition-all duration-300"
+                >
+                  Voir nos tarifs
+                </Button>
+              </a>
+
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

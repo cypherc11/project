@@ -1,20 +1,31 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Github, Linkedin, Twitter, Mail, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, ArrowUp, MessageCircle } from "lucide-react";
+import LogoD from '../assets/logoD.png';
 
 const Footer = () => {
   const footerLinks = {
     services: [
-      { name: "Mise à jour Delta", href: "#" },
-      { name: "Sécurité", href: "#" },
-      { name: "Performance", href: "#" },
-      { name: "Déploiement", href: "#" },
+      { name: 'Développement Web', href: '#services' },
+      { name: 'Cybersecurite de base', href: '#services' },
+      { name: 'Gestion reseau et infrastructure IT', href: '#services' },
+      { name: 'Implementtation et formation logiciel', href: '#services' },
+      { name: 'Maintenance & Support', href: '#services' }
     ],
     company: [
-      { name: "À propos", href: "#about" },
-      { name: "Équipe", href: "#" },
-      { name: "Carrières", href: "#" },
-      { name: "Blog", href: "#" },
+      { name: 'À Propos', href: '#about' },
+      { name: 'Nos Services', href: '#services' },
+      { name: 'Réalisations', href: '#projects' },
+      { name: 'Offres', href: '#offers' },
+      { name: 'Contact', href: '#contact' },
+      //mettre le lien de mon blog
+      { name: 'Blog', href: '#blog' }
+    ],
+    legal: [
+      { name: 'Mentions Légales', href: '#legal' },
+      { name: 'Politique de Confidentialité', href: '#privacy' },
+      { name: 'CGV', href: '#terms' },
+      { name: 'Cookies', href: '#cookies' }
     ],
     support: [
       { name: "Documentation", href: "#" },
@@ -22,19 +33,14 @@ const Footer = () => {
       { name: "FAQ", href: "#" },
       { name: "Contact", href: "#contact" },
     ],
-    legal: [
-      { name: "Mentions légales", href: "#" },
-      { name: "Politique de confidentialité", href: "#" },
-      { name: "CGU", href: "#" },
-      { name: "Cookies", href: "#" },
-    ],
   };
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: 'href="https://www.githup.com/cypherc11"', label: 'GitHub', color: 'hover:text-gray-800' },
+    { icon: Linkedin, href: 'href="https://cm.linkedin.com/in/ahmed-fadil-42b09933a"', label: 'LinkedIn', color: 'hover:text-blue-600' },
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Mail, href: "mailto:contact@deltaupdate.com", label: "Email" },
+    { icon: MessageCircle, href: 'href="https://wa.me/237697995579"', label: 'Facebook', color: 'hover:text-blue-700' },
+    { icon: Mail, href: "mailto:delta-it.cm@proton.me", label: "Email" },
   ];
 
   const scrollToTop = () => {
@@ -42,7 +48,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-muted/30 border-t border-border">
+    <footer className="bg-gradient-to-b from-muted to-card border-t border-border">
       {/* Newsletter Section */}
       <div className="border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -72,9 +78,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold primary-gradient bg-clip-text text-transparent mb-4">
-              DeltaUpdate
-            </h2>
+            {/* Logo */}
+          <div className="flex items-center space-x-3 animate-fade-in">
+            <img 
+              src = {LogoD}
+              alt="Delta IT Logo" 
+              className="h-20 w-auto object-contain filter drop-shadow-lg"
+            />
+          </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Votre partenaire technologique pour des solutions de mise à jour delta innovantes et performantes. 
               Nous transformons vos défis techniques en opportunités de croissance.

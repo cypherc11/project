@@ -1,13 +1,15 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Zap, Shield, Rocket, Star } from "lucide-react";
+import { Check, Zap, Shield, Rocket, Star, Target } from "lucide-react";
+//import { OffersSectionProps } from "@/lib/utils";
 
-interface OffersSectionProps {
+export interface OffersSectionProps {
   onOfferSelect?: (offerTitle: string) => void;
-}
+};
 
 const OffersSection = ({ onOfferSelect }: OffersSectionProps) => {
+  
   const offers = [
     {
       title: "Starter",
@@ -82,6 +84,10 @@ const OffersSection = ({ onOfferSelect }: OffersSectionProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center space-x-2 bg-gradient-secondary px-4 py-2 rounded-full text-sm font-medium text-secondary-foreground mb-6 shadow-medium">
+            <Target className="w-4 h-4" />
+            <span>À Propos de Nous</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Nos Offres
           </h2>
@@ -120,7 +126,7 @@ const OffersSection = ({ onOfferSelect }: OffersSectionProps) => {
                       ? 'primary-gradient' 
                       : 'bg-muted'
                   } group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className={`h-8 w-8 ${offer.featured ? 'text-white' : 'text-foreground'}`} />
+                    <Icon className={`h-8 w-8 ${offer.featured ? 'text-foreground' : 'text-foreground'}`} />
                   </div>
                   
                   <CardTitle className="text-2xl font-bold text-foreground mb-2">
@@ -132,7 +138,7 @@ const OffersSection = ({ onOfferSelect }: OffersSectionProps) => {
                   </Badge>
                   
                   <div className="mb-4">
-                    <span className={`text-4xl font-bold ${offer.featured ? 'primary-gradient bg-clip-text text-transparent' : 'text-foreground'}`}>
+                    <span className={`text-4xl font-bold ${offer.featured ? 'primary-gradient bg-clip-text' : 'text-foreground'}`}>
                       {offer.price}
                     </span>
                     <span className="text-muted-foreground">{offer.period}</span>
@@ -180,8 +186,8 @@ const OffersSection = ({ onOfferSelect }: OffersSectionProps) => {
         </div>
 
         {/* Additional Info */}
-        <div className="text-center mt-16 animate-fade-in-up">
-          <div className="bg-muted/30 rounded-2xl p-8">
+        <div className="text-center mt-16 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
+          <div className="bg-gradient-card p-8 rounded-2xl border border-border shadow-medium">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Besoin d'une solution sur mesure ?
             </h3>
@@ -193,16 +199,9 @@ const OffersSection = ({ onOfferSelect }: OffersSectionProps) => {
                 onClick={() => handleOfferClick('Solution sur mesure')}
                 variant="outline" 
                 size="lg" 
-                className="font-semibold border-2 hover:bg-muted/50 transition-all duration-300"
+                className="primary-gradient font-semibold shadow-medium hover:shadow-large transition-all duration-300"
               >
                 Demander un devis personnalisé
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="font-semibold border-2 hover:bg-muted/50 transition-all duration-300"
-              >
-                Comparer toutes les offres
               </Button>
             </div>
           </div>

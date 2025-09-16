@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, GitBranch, Users, Calendar } from "lucide-react";
+import { ExternalLink, GitBranch, Users, Calendar, CheckCircle } from "lucide-react";
 
 const ProjectsSection = () => {
   const projects = [
@@ -81,7 +81,8 @@ const ProjectsSection = () => {
         team: "12",
         duration: "12 mois"
       },
-      status: "En cours"
+      status: "En cours",
+      link: ""
     }
   ];
 
@@ -94,6 +95,10 @@ const ProjectsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
+          <div className="inline-flex items-center space-x-2 bg-gradient-primary px-4 py-2 rounded-full text-sm font-medium text-primary-foreground mb-6 shadow-glow">
+            <CheckCircle className="w-4 h-4" />
+            <span>Nos Projets</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Nos Projets
           </h2>
@@ -105,15 +110,15 @@ const ProjectsSection = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card 
-              key={project.title} 
+            <Card
+              key={project.title}
               className="group hover:shadow-large transition-all duration-300 border-2 hover:border-primary/20 bg-card animate-fade-in-up overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Project Image */}
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -174,13 +179,16 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Action Button */}
-                <Button 
-                  variant="outline" 
-                  className="w-full group-hover:border-primary/50 transition-colors duration-300"
-                >
-                  Voir le projet
-                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <a href={project.link}>
+                  <Button
+                    variant="outline"
+                    className="w-full group-hover:border-primary/50 transition-colors duration-300"
+                  >
+                    Voir le projet
+                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
+
               </CardContent>
             </Card>
           ))}
@@ -196,19 +204,15 @@ const ProjectsSection = () => {
               Discutons de votre vision et transformons-la en réalité avec nos solutions sur mesure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="primary-gradient text-white font-semibold shadow-medium hover:shadow-large transition-all duration-300"
-              >
-                Démarrer un projet
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="font-semibold border-2 hover:bg-muted/50 transition-all duration-300"
-              >
-                Voir notre portfolio
-              </Button>
+              <a href="#contact">
+                <Button
+                  size="lg"
+                  className="primary-gradient text-white font-semibold shadow-medium hover:shadow-large transition-all duration-300"
+                >
+                  Démarrer un projet
+                </Button>
+              </a>
+
             </div>
           </div>
         </div>
