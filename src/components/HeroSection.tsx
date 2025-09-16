@@ -40,8 +40,9 @@ const HeroSection = ({ onSelect }: SectionProps) => {
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Transformez vos projets avec nos solutions de mise à jour delta avancées.
-              Optimisez les performances et réduisez les temps de déploiement avec notre technologie de pointe.
+              Gagnez en efficacité, et passer a une nouvelle air.
+              Optimisez les performances et réduisez vos charge avec des technologie de pointe et
+              une expertise de qualité.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -72,14 +73,14 @@ const HeroSection = ({ onSelect }: SectionProps) => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-border/50">
               <div className="text-center">
                 <div className="text-3xl font-bold primary-gradient bg-clip-text">99%</div>
-                <div className="text-sm text-muted-foreground">Réduction de taille</div>
+                <div className="text-sm text-muted-foreground">Gains de temps</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold primary-gradient bg-clip-text">10x</div>
                 <div className="text-sm text-muted-foreground">Plus rapide</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold primary-gradient bg-clip-text">500+</div>
+                <div className="text-3xl font-bold primary-gradient bg-clip-text">15+</div>
                 <div className="text-sm text-muted-foreground">Projets déployés</div>
               </div>
               <div className="text-center">

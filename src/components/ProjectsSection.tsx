@@ -6,56 +6,61 @@ import { ExternalLink, GitBranch, Users, Calendar, CheckCircle } from "lucide-re
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "E-commerce Marketplace",
-      description: "Plateforme de vente en ligne avec système de paiement intégré et gestion des stocks en temps réel.",
+      title: "Jersey jolt E-commerce",
+      description: "Plateforme de vente en ligne de maillot avec système de  commmente par whatsapp intégré et gestion des stocks en temps réel.",
       category: "E-commerce",
       technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
       stats: {
-        commits: "1,247",
-        team: "8",
-        duration: "6 mois"
+        commits: "24",
+        team: "3",
+        duration: "1 mois"
       },
-      status: "Terminé"
+      status: "En cours",
+      link: ""
+    },
+     {
+      title: "Generateur de portofolio par IA",
+      description: "Plateforme de en ligne de generation automatiwue dec portfolio par upload de CV .docx, .pdf ou .txt a travers l'IA.",
+      category: "Saas",
+      technologies: ["React", "Express.js", "PostgreSQL", "Stripe"],
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+      stats: {
+        commits: "47",
+        team: "2",
+        duration: "2 mois"
+      },
+      status: "Terminé",
+      link: ""
+      
     },
     {
-      title: "Application de Gestion RH",
-      description: "Solution complète pour la gestion des ressources humaines avec suivi des performances et planification.",
+      title: "LegalMarket",
+      description: "Plateforme de renseignement et d'assistance dans les procedure legal  etmise en contact avec specialiste de la loi.",
       category: "Enterprise",
       technologies: ["Vue.js", "Laravel", "MySQL", "Redis"],
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop",
       stats: {
         commits: "892",
         team: "5",
-        duration: "4 mois"
+        duration: "2 mois"
       },
-      status: "En cours"
+      status: "En cours",
+      link: ""
     },
     {
-      title: "Plateforme IoT",
-      description: "Dashboard pour la surveillance et le contrôle d'appareils IoT avec analytics en temps réel.",
-      category: "IoT",
-      technologies: ["Angular", "Python", "MongoDB", "InfluxDB"],
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop",
-      stats: {
-        commits: "654",
-        team: "6",
-        duration: "5 mois"
-      },
-      status: "Terminé"
-    },
-    {
-      title: "App Mobile Fitness",
-      description: "Application mobile de suivi fitness avec plans d'entraînement personnalisés et tracking GPS.",
-      category: "Mobile",
+      title: "VulnApp",
+      description: "Plateforme d'exercice a l'exploitation de faille web par exploitation guider de faille contenu dans le top 10 de l'OWASP.",
+      category: "Cybersecurite",
       technologies: ["React Native", "Firebase", "Node.js", "GraphQL"],
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
       stats: {
-        commits: "1,156",
+        commits: "14",
         team: "4",
-        duration: "8 mois"
+        duration: "5 mois"
       },
-      status: "En cours"
+      status: "En cours",
+      link: ""
     },
     {
       title: "Système de Réservation",
@@ -68,22 +73,9 @@ const ProjectsSection = () => {
         team: "3",
         duration: "3 mois"
       },
-      status: "Terminé"
-    },
-    {
-      title: "CRM Avancé",
-      description: "Système de gestion client avec automation marketing et intégration multi-canaux.",
-      category: "Enterprise",
-      technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-      stats: {
-        commits: "2,341",
-        team: "12",
-        duration: "12 mois"
-      },
       status: "En cours",
       link: ""
-    }
+    },
   ];
 
   const getStatusColor = (status: string) => {
@@ -179,7 +171,7 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Action Button */}
-                <a href={project.link}>
+                <a href={project.link} target="_blank">
                   <Button
                     variant="outline"
                     className="w-full group-hover:border-primary/50 transition-colors duration-300"

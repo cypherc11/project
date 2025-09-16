@@ -4,9 +4,9 @@ import techBackground from "@/assets/tech-background.jpg";
 
 const AboutSection = () => {
   const achievements = [
-    { icon: Users, value: "100+", label: "Clients satisfaits" },
-    { icon: Award, value: "500+", label: "Projets réalisés" },
-    { icon: Globe, value: "50+", label: "Pays desservis" },
+    { icon: Users, value: "15+", label: "Clients satisfaits" },
+    { icon: Award, value: "20+", label: "Projets réalisés" },
+    { icon: Globe, value: "5+", label: "Domaine d'expertise" },
     { icon: CheckCircle, value: "99.9%", label: "Taux de disponibilité" },
   ];
 
@@ -14,7 +14,7 @@ const AboutSection = () => {
     "Excellence technique et innovation constante",
     "Support client personnalisé 24/7",
     "Solutions sur mesure adaptées à vos besoins",
-    "Engagement pour la sécurité et la performance",
+    "Engagement pour votre satisfaction",
   ];
 
   return (
@@ -32,15 +32,15 @@ const AboutSection = () => {
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Chez DeltaUpdate, nous ne créons pas seulement des solutions techniques - nous façonnons l'avenir
-              de vos déploiements. Spécialisés dans les technologies de mise à jour delta, nous transformons
+              Chez Delta IT, nous ne créons pas seulement des solutions techniques - nous vous accompagnons dans toute vos demarche technologique. 
+              Spécialisés dans les nouvelles technologies, le reseau et le developpement, nous transformons
               vos défis les plus complexes en solutions élégantes et performantes.
             </p>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Notre approche unique allie innovation, expertise technique et créativité pour développer
-              des solutions qui dépassent vos attentes. De la compression intelligente aux déploiements
-              zero-downtime, nous mettons la technologie au service de votre vision.
+              des solutions qui dépassent vos attentes. De l'analyse intelligente de vos probleme aux déploiements
+              de solutions sur mesure, nous mettons la technologie au service de votre vision.
             </p>
 
             {/* Values List */}
