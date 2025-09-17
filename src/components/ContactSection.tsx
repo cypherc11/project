@@ -41,7 +41,7 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
     {
       icon: MapPin,
       title: "Adresse",
-      link: 'google.com',
+      link: 'https://www.google.com/maps/search/iuget+bonaberi/@4.0703286,9.6229801,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDkxNC4wIKXMDSoASAFQAw%3D%3D',
       details: ['Bonaberie', 'Douala, Cameroun'],
       description: "quelque metre du marche grand hangard",
       gradient: 'from-primary to-primary-glow'
@@ -67,11 +67,8 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
   useEffect(() => {
     if (selectedOffer) {
       setSubject(`Demande d'information - Offre ${selectedOffer}`);
-      //setContent(`Demande d'information - Offre `);
     }
   }, [selectedOffer]);
-
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -83,13 +80,11 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
-
     try {
       // Configuration EmailJS - Remplacez par vos vraies valeurs
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'your_service_id';
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'your_template_id';
       const userId = import.meta.env.VITE_EMAILJS_USER_ID || 'your_user_id';
-
       // Paramètres du template EmailJS
       const templateParams = {
         from_name: formData.name,
@@ -100,9 +95,7 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
         message: formData.message,
         to_email: 'deltaIT.cm@gmail.com' // Votre email de réception
       };
-
       await emailjs.send(serviceId, templateId, templateParams, userId);
-
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -136,7 +129,6 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
             Prêt à transformer vos déploiements ? Notre équipe d'experts est là pour vous accompagner
           </p>
         </div>
-
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-8 animate-slide-in-left">
@@ -212,7 +204,6 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
                   Décrivez votre projet et nous vous recontacterons dans les plus brefs délais
                 </p>
               </CardHeader>
-
               <CardContent className="space-y-6">
                 {/*status de l'envoie */}
                 {submitStatus === 'success' && (
@@ -223,7 +214,6 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
                     </p>
                   </div>
                 )}
-
                 {submitStatus === 'error' && (
                   <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg animate-fadeInUp">
                     <p className="text-red-800">
@@ -293,14 +283,13 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
                       />
                     </div>
                   </div>
-
                   <div className="space-y-2">
                     <Label htmlFor="subject" className="text-foreground font-medium">
                       Sujet *
                     </Label>
                     <Input
                       id="subject"
-                      value={subject || formData.telephone}                
+                      value={subject || formData.subject}                
                       onChange={(e) => setSubject(e.target.value)}
                       placeholder="Objet de votre message"
                       className="border-2 focus:border-primary/50 transition-colors duration-300"
@@ -316,6 +305,7 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
                       id="message"
                       name="message"
                       value={formData.message}
+                      onChange={handleInputChange}
                       placeholder="Décrivez-nous votre projet ou vos besoins..."
                       required
                       rows={6}
@@ -341,7 +331,6 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
                       </>
                     )}
                   </Button>
-
                   <p className="text-sm text-muted-foreground text-center">
                     En envoyant ce formulaire, vous acceptez notre politique de confidentialité.
                   </p>
@@ -354,5 +343,4 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
     </section>
   );
 };
-
 export default ContactSection;

@@ -36,10 +36,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Github, href: 'href="https://www.githup.com/cypherc11"', label: 'GitHub', color: 'hover:text-gray-800' },
-    { icon: Linkedin, href: 'href="https://cm.linkedin.com/in/ahmed-fadil-42b09933a"', label: 'LinkedIn', color: 'hover:text-blue-600' },
+    { icon: Github, href: "https://www.githup.com/cypherc11", label: 'GitHub', color: 'hover:text-gray-800' },
+    { icon: Linkedin, href: "https://cm.linkedin.com/in/ahmed-fadil-42b09933a", label: 'LinkedIn', color: 'hover:text-blue-600' },
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: MessageCircle, href: 'href="https://wa.me/237697995579"', label: 'Facebook', color: 'hover:text-blue-700' },
+    { icon: MessageCircle, href: "https://wa.me/237697995579", label: 'Whatzapp', color: 'hover:text-blue-700' },
     { icon: Mail, href: "mailto:delta-it.cm@proton.me", label: "Email" },
   ];
 
@@ -101,6 +101,8 @@ const Footer = () => {
                     href={social.href}
                     className="w-10 h-10 bg-muted rounded-full flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all duration-300"
                     aria-label={social.label}
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
                     <Icon className="h-5 w-5" />
                   </a>

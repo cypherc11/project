@@ -76,6 +76,20 @@ const ProjectsSection = () => {
       status: "En cours",
       link: ""
     },
+    {
+      title: "BIBLIO-MAP",
+      description: "Plateformes de mapping de bibliothèques à proximité.",
+      category: "SaaS",
+      technologies: ["Svelte", "Express", "PostgreSQL", "WebSocket"],
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop",
+      stats: {
+        commits: "3",
+        team: "3",
+        duration: "3 mois"
+      },
+      status: "En cours",
+      link: ""
+    },
   ];
 
   const getStatusColor = (status: string) => {

@@ -1,13 +1,15 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
-import heroPortrait from "@/assets/hero-portrait.jpg";
-//import { SectionProps, handleClick } from "@/lib/utils";
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Zap, Code, Shield, Sparkles } from 'lucide-react';
+
 export interface SectionProps {
   onSelect?: (content: string) => void;
-};
+}
 
 const HeroSection = ({ onSelect }: SectionProps) => {
-  const Click = (content: string) => {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    const Click = (content: string) => {
     if (onSelect) {
       onSelect(content);
     }
@@ -17,103 +19,128 @@ const HeroSection = ({ onSelect }: SectionProps) => {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  const floatingIcons = [
+    { Icon: Code, delay: '0s', position: 'top-20 left-10' },
+    { Icon: Shield, delay: '0.5s', position: 'top-40 right-20' },
+    { Icon: Zap, delay: '1s', position: 'top-60 left-1/4' },
+    { Icon: Sparkles, delay: '1.5s', position: 'top-32 right-1/3' },
+  ];
+
   return (
-    <section id="home" className="min-h-screen hero-gradient flex items-center justify-center pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="animate-slide-in-left">
-            <div className="flex items-center gap-2 mb-6">
-              <Sparkles className="h-6 w-6 text-primary" />
-              <span className="text-primary font-semibold">Delta IT</span>
-            </div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-muted to-background">
+      {/* Animated background gradient */}
+      <div 
+        className="absolute inset-0 opacity-30"
+        style={{
+          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, hsl(var(--primary-glow)) 0%, transparent 50%)`,
+          transition: 'background 0.3s ease',
+        }}
+      />
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-              Innovation.
-              <br />
-              <span className="primary-gradient bg-clip-text">
-                Performance.
-              </span>
-              <br />
-              Excellence.
-            </h1>
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {Array.from({ length: 20 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-primary/20 rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${3 + Math.random() * 2}s`,
+            }}
+          />
+        ))}
+      </div>
 
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Gagnez en efficacité, et passer a une nouvelle air.
-              Optimisez les performances et réduisez vos charge avec des technologie de pointe et
+      {/* Floating tech icons */}
+      {floatingIcons.map(({ Icon, delay, position }, index) => (
+        <div
+          key={index}
+          className={`absolute ${position} opacity-20 animate-float`}
+          style={{ animationDelay: delay }}
+        >
+          <Icon className="w-12 h-12 text-primary" />
+        </div>
+      ))}
+
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="max-w-4xl mx-auto">
+          {/* Badge */}
+          <div className="inline-flex items-center space-x-2 bg-gradient-secondary px-4 py-2 rounded-full text-sm font-medium text-secondary-foreground mb-8 animate-fade-in shadow-medium">
+            <Sparkles className="w-4 h-4" />
+            <span>Solutions IT Innovantes</span>
+          </div>
+
+          {/* Main heading */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
+            Votre partenaire technologique
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
+              Gagnez en efficacité, et passer à une nouvelle ère.
+              Optimisez les performances et réduisez vos charges avec des technologies de pointe et
               une expertise de qualité.
-            </p>
+          </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#services">
-                <Button
-                  size="lg"
-                  className="primary-gradient text-white font-semibold shadow-medium hover:shadow-large transition-all duration-300 group"
-                >
-                  Découvrir nos solutions
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </a>
-
-              
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="font-semibold border-2 hover:bg-muted/50 transition-all duration-300"
-                  onClick={() => Click('Devis gratuit')}
-                >
-                  Demander un Devis gratuit
-                </Button>
-              
-
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-border/50">
-              <div className="text-center">
-                <div className="text-3xl font-bold primary-gradient bg-clip-text">99%</div>
-                <div className="text-sm text-muted-foreground">Gains de temps</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold primary-gradient bg-clip-text">10x</div>
-                <div className="text-sm text-muted-foreground">Plus rapide</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold primary-gradient bg-clip-text">15+</div>
-                <div className="text-sm text-muted-foreground">Projets déployés</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold primary-gradient bg-clip-text">24/7</div>
-                <div className="text-sm text-muted-foreground">Support technique</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content - Hero Image */}
-          <div className="animate-fade-in-up lg:pl-12">
-            <div className="relative">
-              {/* Floating background elements */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/10 rounded-full animate-float"></div>
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-primary/5 rounded-full animate-float" style={{ animationDelay: "2s" }}></div>
-
-              {/* Main image */}
-              <div className="relative z-10">
-                <div className="w-96 h-96 mx-auto rounded-full overflow-hidden shadow-large border-4 border-white/50">
-                  <img
-                    src={heroPortrait}
-                    alt="Professional portrait"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* Decorative elements */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] border border-primary/20 rounded-full -z-10"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-primary/10 rounded-full -z-10"></div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <a href="#services">
+              <Button size="lg" className="bg-gradient-primary text-primary-foreground hover:shadow-glow transition-all duration-300 hover:scale-105 px-8 py-6 text-lg font-semibold">
+                Découvrir nos Services
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
             
-            </div>
+            
+              <Button 
+              variant="outline" 
+              size="lg" 
+              onClick={() => Click(" un devis Gratuit")}
+              className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 hover:scale-105 px-8 py-6 text-lg">
+                Demander un devis Gratuit
+              </Button>
+            
+            
           </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            {[
+              { number: '20+', label: 'Projets Réalisés' },
+              { number: '98%', label: 'Clients Satisfaits' },
+              { number: '2+', label: 'Années d\'Expérience' },
+            ].map((stat, index) => (
+              <div
+                key={index}
+                className="text-center p-6 bg-card/50 backdrop-blur-sm rounded-xl border border-border hover:shadow-medium transition-all duration-300 hover:scale-105"
+              >
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-subtle">
+        <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce-subtle"></div>
         </div>
       </div>
     </section>
