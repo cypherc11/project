@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, GitBranch, Users, Calendar, CheckCircle } from "lucide-react";
-
+import jersey from "../assets/jersey-jolt.png"
 const ProjectsSection = () => {
   const projects = [
     {
@@ -10,7 +10,7 @@ const ProjectsSection = () => {
       description: "Plateforme de vente en ligne de maillot avec système de  commmente par whatsapp intégré et gestion des stocks en temps réel.",
       category: "E-commerce",
       technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+      image: jersey,
       stats: {
         commits: "24",
         team: "3",
