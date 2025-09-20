@@ -146,7 +146,7 @@ const ServicesSection = () => {
               Prêt à optimiser vos déploiements ?
             </h3>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Contactez notre équipe d'experts pour discuter de vos besoins et découvrir comment DeltaUpdate peut transformer vos processus.
+              Contactez notre équipe d'experts pour discuter de vos besoins et découvrir comment Delta IT peut transformer vos processus.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#contact">
