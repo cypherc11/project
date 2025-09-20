@@ -181,7 +181,7 @@ const ContactSection = ({ selectedOffer, contentOffer }: ContactSectionProps) =>
                 <h3 className="text-xl font-bold mb-2">Besoin d'une réponse rapide ?</h3>
                 <p className="mb-4 opacity-90">Appelez-nous directement pour un conseil immédiat</p>
 
-                <a href="697995579">
+                <a href="tel:+237697995579">
                   <Button variant="secondary" className="bg-white/20 text-white border-white/30 hover:bg-white/30">
                     <Phone className="w-4 h-4 mr-2" />
                     Appeler Maintenant

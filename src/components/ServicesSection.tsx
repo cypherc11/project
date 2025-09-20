@@ -18,16 +18,13 @@ const ServicesSection = () => {
       delay: '0s',
       plus: 'description par rapport au produit'
     },
-
     {
-      icon: Shield,
-      title: 'Cybersecurite de base',
-      description: 'Protection et sécurisation de vos systèmes et données d\'entreprise.',
-      features: ['Audit Sécurité', 'Firewall Setup', 'Backup Solutions', 'Monitoring 24/7'],
-      link: '',
-      gradient: 'from-accent to-accent-glow',
-      delay: '0.4s',
-      plus: 'description par rapport au produit'
+      icon: Gauge,
+      title: 'Solution IA',
+      description: 'Conception et integration de solution par intelligence artificille.',
+      features: ['ChatBot IA', 'Automatisation IA', 'Integration IA', 'application IA'],
+      gradient: 'from-primary to-secondary',
+      delay: '0.2s'
     },
     {
       icon: Smartphone,
@@ -36,27 +33,7 @@ const ServicesSection = () => {
       features: ['LAN', 'WLAN', 'Installation bais information', 'Configurationde serveur interne'],
       link: '',
       gradient: 'from-secondary to-secondary-glow',
-      delay: '0.2s',
-      plus: 'description par rapport au produit'
-    },
-    /*
-    {
-      icon: Database,
-      title: 'Gestion de Données',
-      description: 'Conception et optimisation de bases de données pour vos applications.',
-      features: ['Base de Données', 'Migration Data', 'Optimisation', 'Analytics'],
-      gradient: 'from-primary to-secondary',
-      delay: '0.6s'
-    },
-    */
-    {
-      icon: Globe,
-      title: 'implementation et formation logiciel',
-      description: 'progresser grace a des logiciel adapter a vos besoin et soyer plus productif.',
-      features: ['AWS/Azure', 'Odoo', 'Autocards', 'Scalabilité'],
-      link: '',
-      gradient: 'from-secondary to-accent',
-      delay: '0.8s',
+      delay: '0.4s',
       plus: 'description par rapport au produit'
     },
     {
@@ -66,9 +43,31 @@ const ServicesSection = () => {
       features: ['Support 24/7', 'Maintenance', 'Updates', 'Formation'],
       link: '',
       gradient: 'from-accent to-primary',
+      delay: '0.6s',
+      plus: 'description par rapport au produit'
+    },
+    {
+      icon: Shield,
+      title: 'Cybersecurite de base',
+      description: 'Protection et sécurisation de vos systèmes et données d\'entreprise.',
+      features: ['Audit Sécurité', 'Firewall Setup', 'Backup Solutions', 'Monitoring 24/7'],
+      link: '',
+      gradient: 'from-primary to-accent-glow',
+      delay: '0.8s',
+      plus: 'description par rapport au produit'
+    },
+    
+    {
+      icon: Globe,
+      title: 'implementation et formation logiciel',
+      description: 'progresser grace a des logiciel adapter a vos besoin et soyer plus productif.',
+      features: ['AWS/Azure', 'Odoo', 'Autocards', 'Scalabilité'],
+      link: '',
+      gradient: 'from-secondary to-accent',
       delay: '1s',
       plus: 'description par rapport au produit'
-    }
+    },
+    
   ];
   return (
     <section id="services" className="py-20 bg-background">
@@ -80,7 +79,7 @@ const ServicesSection = () => {
             <span>Nos Services</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Nos Services
+            Delta Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Des solutions technologiques innovantes pour optimiser vos déploiements et améliorer vos performances

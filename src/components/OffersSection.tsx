@@ -12,56 +12,55 @@ const OffersSection = ({ onOfferSelect }: OffersSectionProps) => {
   
   const offers = [
     {
-      title: "Starter",
-      subtitle: "Parfait pour débuter",
-      price: "99€",
-      period: "/mois",
-      description: "Idéal pour les petites entreprises qui souhaitent optimiser leurs déploiements.",
+      title: "Delta WEB",
+      subtitle: "Creation d'une landing page",
+      price: "300€ ",
+      //period: "/mois",
+      description: "Idéal pour les petites entreprises qui souhaitent optimiser presence en ligne.",
       icon: Zap,
       featured: false,
       features: [
-        "Jusqu'à 10 projets",
-        "Mises à jour delta basiques",
-        "Support par email",
-        "Monitoring basique",
-        "1 utilisateur inclus",
-        "Sauvegarde quotidienne"
+        "Generation du contenu textuel et visuel",
+        "SEO de base",
+        "hebergement pour la premiere annee",
+        "Nom de domaine + adresse mail professionnelle",
+        "certificat SSL inclut",
+        "3 revisions du site a la demande du client",
+        "support sur 3 mois"
       ]
     },
     {
-      title: "Professional",
+      title: "Maintenance Gold",
       subtitle: "Le plus populaire",
-      price: "299€",
+      price: "150€",
       period: "/mois",
-      description: "Solution complète pour les équipes de développement professionnelles.",
+      description: "Solution de  maintenance proactive.",
       icon: Shield,
-      featured: true,
+      featured: false,
       features: [
-        "Projets illimités",
-        "Mises à jour delta avancées",
+        "Mises à jour delta OS et logiciel",
+        "installation de logiciel de base selon les besoins du client",
         "Support prioritaire 24/7",
-        "Analytics détaillées",
-        "Jusqu'à 10 utilisateurs",
-        "Sauvegarde en temps réel",
-        "API personnalisée",
-        "Intégrations avancées"
+        "Maintenance preventive sur site",
+        "Diagnostic pontuel de panne",
+        "systeme de sauvegarde automatique des donnees cloud ou local",
+        "Support a distance illimite",
       ]
     },
     {
-      title: "Enterprise",
-      subtitle: "Pour les grandes équipes",
-      price: "799€",
+      title: "IA Perform",
+      subtitle: "Solution IA sur mesure",
+      price: "500€",
       period: "/mois",
       description: "Solution enterprise avec fonctionnalités avancées et support dédié.",
       icon: Rocket,
       featured: false,
       features: [
-        "Tout de Professional",
-        "Déploiement on-premise",
+        "Access a tous nos SaaS IA",
+        "Integration d'un process IA dans vos projet",
         "Manager dédié",
-        "SLA garantis",
-        "Utilisateurs illimités",
-        "Conformité enterprise",
+        "choix du model IA",
+        "bot d'analyse de donnee strategique par IA",
         "Formation équipe",
         "Support téléphonique"
       ]
@@ -86,13 +85,13 @@ const OffersSection = ({ onOfferSelect }: OffersSectionProps) => {
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-flex items-center space-x-2 bg-gradient-secondary px-4 py-2 rounded-full text-sm font-medium text-secondary-foreground mb-6 shadow-medium">
             <Target className="w-4 h-4" />
-            <span>À Propos de Nous</span>
+            <span>Nos Offres</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Nos Offres
+            Les plus demander
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Choisissez la solution qui correspond le mieux à vos besoins et à la taille de votre équipe
+            Choisissez la solution qui correspond le mieux à vos besoins
           </p>
         </div>
 

@@ -79,15 +79,10 @@ const HeroSection = ({ onSelect }: SectionProps) => {
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-gradient-secondary px-4 py-2 rounded-full text-sm font-medium text-secondary-foreground mb-8 animate-fade-in shadow-medium">
-            <Sparkles className="w-4 h-4" />
-            <span>Solutions IT Innovantes</span>
-          </div>
-
+         
           {/* Main heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent leading-tight">
-            Votre partenaire technologique
+            Votre Partenaire Technologique
           </h1>
 
           {/* Subtitle */}

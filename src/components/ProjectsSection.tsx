@@ -2,8 +2,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, GitBranch, Users, Calendar, CheckCircle } from "lucide-react";
+import { Toast } from "@radix-ui/react-toast";
+import { toast } from "sonner";
+
 import jersey from "../assets/jersey-jolt.png"
+import biblio from "../assets/biblio.png"
+
 const ProjectsSection = () => {
+
   const projects = [
     {
       title: "Jersey jolt E-commerce",
@@ -19,11 +25,11 @@ const ProjectsSection = () => {
       status: "En cours",
       link: ""
     },
-     {
+    {
       title: "Generateur de portofolio par IA",
-      description: "Plateforme de en ligne de generation automatiwue dec portfolio par upload de CV .docx, .pdf ou .txt a travers l'IA.",
+      description: "Plateforme de en ligne de generation automatique decportfolio par upload de CV .docx, .pdf ou .txt a travers l'IA.",
       category: "Saas",
-      technologies: ["React", "Express.js", "PostgreSQL", "Stripe"],
+      technologies: ["React", "Express.js", "PostgreSQL",],
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
       stats: {
         commits: "47",
@@ -32,7 +38,7 @@ const ProjectsSection = () => {
       },
       status: "Terminé",
       link: ""
-      
+
     },
     {
       title: "LegalMarket",
@@ -81,7 +87,7 @@ const ProjectsSection = () => {
       description: "Plateformes de mapping de bibliothèques à proximité.",
       category: "SaaS",
       technologies: ["Svelte", "Express", "PostgreSQL", "WebSocket"],
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop",
+      image: biblio,
       stats: {
         commits: "3",
         team: "3",
@@ -92,8 +98,19 @@ const ProjectsSection = () => {
     },
   ];
 
+  // const etat = () => {
+  //   return (
+  //     projects.map((project) => {
+  //       if (project.status === "En cours") {
+  //         toast(`projet ${project.title} en cours de developpement `)
+  //       } else
+  //         toast('lien indisponible')
+  //     })
+  //   )
+  // }
   const getStatusColor = (status: string) => {
     return status === "Terminé" ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800";
+
   };
 
   return (
@@ -106,7 +123,7 @@ const ProjectsSection = () => {
             <span>Nos Projets</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Nos Projets
+            Nos Projets les plus recents
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Découvrez nos réalisations et les solutions innovantes que nous avons développées pour nos clients
@@ -185,15 +202,15 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Action Button */}
-                <a href={project.link} target="_blank">
-                  <Button
-                    variant="outline"
-                    className="w-full group-hover:border-primary/50 transition-colors duration-300"
-                  >
-                    Voir le projet
-                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </a>
+
+                <Button
+                  variant="outline"
+                  className="w-full group-hover:border-primary/50 transition-colors duration-300"
+                >
+                  Voir le projet
+                  <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+
 
               </CardContent>
             </Card>

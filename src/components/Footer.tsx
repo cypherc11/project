@@ -59,16 +59,20 @@ const Footer = () => {
             <p className="text-muted-foreground mb-8">
               Recevez nos actualités, conseils techniques et nouvelles fonctionnalités directement dans votre boîte mail.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="votre@email.com"
-                className="flex-1 px-4 py-3 rounded-lg border border-border bg-background focus:border-primary/50 focus:outline-none transition-colors duration-300"
-              />
-              <Button className="primary-gradient text-white font-semibold shadow-medium hover:shadow-large transition-all duration-300">
-                S'abonner
-              </Button>
-            </div>
+            {/*completer avec formSubtmit*/}
+            <form action="">
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="votre@email.com"
+                  className="flex-1 px-4 py-3 rounded-lg border border-border bg-background focus:border-primary/50 focus:outline-none transition-colors duration-300"
+                />
+                <Button type="submit" className="primary-gradient text-white font-semibold shadow-medium hover:shadow-large transition-all duration-300">
+                  S'abonner
+                </Button>
+              </div>
+            </form>
+
           </div>
         </div>
       </div>
@@ -79,18 +83,19 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             {/* Logo */}
-          <div className="flex items-center space-x-3 animate-fade-in">
-            <img 
-              src = {LogoD}
-              alt="Delta IT Logo" 
-              className="h-20 w-auto object-contain filter drop-shadow-lg"
-            />
-          </div>
+            <div className="flex items-center space-x-3 animate-fade-in">
+              <img
+                src={LogoD}
+                alt="Delta IT Logo"
+                className="h-20 w-auto object-contain filter drop-shadow-lg"
+              />
+            </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Votre partenaire technologique pour des solutions de mise à jour delta innovantes et performantes. 
-              Nous transformons vos défis techniques en opportunités de croissance.
+              Gagnez en efficacité, et passer à une nouvelle ère.
+              Optimisez les performances et réduisez vos charges avec des technologies de pointe et
+              une expertise de qualité.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social) => {
@@ -117,8 +122,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
@@ -133,8 +138,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
@@ -149,8 +154,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
@@ -165,8 +170,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <a 
-                    href={link.href} 
+                  <a
+                    href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
@@ -183,10 +188,10 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">
-            © 2024 DeltaUpdate. Tous droits réservés.
+          <p className="text-muted-foreground text-sm items-center">
+            © 2025 Deltacm IT. Tous droits réservés.
           </p>
-          
+
           <Button
             variant="ghost"
             size="sm"

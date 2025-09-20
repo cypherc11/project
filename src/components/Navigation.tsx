@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import logoD from '../assets/logoD.png'
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,9 +20,9 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3 animate-fade-in">
-            <img 
-              src = {logoD}
-              alt="Delta IT Logo" 
+            <img
+              src={logoD}
+              alt="Delta IT Logo"
               className="h-20 w-auto object-contain filter drop-shadow-lg"
             />
           </div>
@@ -45,11 +45,21 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <a href="#contact">
-              <Button className="primary-gradient text-white font-medium shadow-medium hover:shadow-large transition-all duration-300">
-                Commencer
-              </Button>
-            </a>
+            <div className=" ml-10 flex items-baseline space-x-5">
+              <a href="#contact">
+                <Button className="primary-gradient text-white font-medium shadow-medium hover:shadow-large transition-all duration-300">
+                  Commencer
+                </Button>
+              </a>
+
+
+              <a href="tel:+237697995579">
+                <Button className="primary-gradient text-white font-medium shadow-medium hover:shadow-large transition-all duration-300">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Appelez
+                </Button>
+              </a>
+            </div>
           </div>
 
           {/* Mobile menu button */}
